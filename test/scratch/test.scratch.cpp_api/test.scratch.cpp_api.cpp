@@ -4,7 +4,7 @@
  * Purpose: Scratch-test exercising various parts of recls C++ API.
  *
  * Created: 4th January 2010
- * Updated: 3rd January 2024
+ * Updated: 9th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -375,13 +375,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 

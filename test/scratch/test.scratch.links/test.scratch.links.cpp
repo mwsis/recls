@@ -4,7 +4,7 @@
  * Purpose: Finds and lists multiply-linked files.
  *
  * Created: 23rd February 2011
- * Updated: 3rd January 2024
+ * Updated: 9th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -87,7 +87,7 @@ static int main_(int argc, char* argv[])
 
     std::cout
         << "listing all files under the directory '"
-        << stlsoft::c_str_ptr(searchRoot)
+        << stlsoft::c_str_ptr(NULL != searchRoot ? searchRoot : ".")
         << "' that have a link count > 1:"
         << std::endl;
 
@@ -153,6 +153,7 @@ static int main_(int argc, char* argv[])
         if (nlinks > 1)
         {
             std::cout
+                << '\t'
 #if defined(PLATFORMSTL_OS_IS_WINDOWS)
                 << winstl::t2a(e.get_path())
 #else
@@ -179,6 +180,8 @@ static int main_(int argc, char* argv[])
 
 int main(int argc, char** argv)
 {
+    char const* const program_name = platformstl::get_executable_name_from_path(argv[0]).ptr;
+
 #if 0
     { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
@@ -192,15 +195,15 @@ int main(int argc, char** argv)
 
         return main_(argc, argv);
     }
-    catch(std::bad_alloc&)
+    catch (std::bad_alloc&)
     {
-        fputs("out of memory\n", stderr);
+        fprintf(stderr, "%s: out of memory\n", program_name);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
-        fprintf(stderr, "Unhandled error: %s\n", x.what());
+        fprintf(stderr, "%s: Unhandled exception (%s): %s\n", program_name, typeid(x).name(), x.what());
     }
-    catch(...)
+    catch (...)
     {
         fputs("Unhandled unknown error\n", stderr);
     }

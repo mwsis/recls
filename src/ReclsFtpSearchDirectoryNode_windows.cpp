@@ -5,11 +5,11 @@
  *          Windows.
  *
  * Created: 1st June 2004
- * Updated: 30th December 2023
+ * Updated: 9th July 2024
  *
  * Home:    https://github.com/synesissoftware/recls
  *
- * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -380,7 +380,7 @@ ReclsFtpSearchDirectoryNode::FindAndCreate(
         node = new ReclsFtpSearchDirectoryNode(connection, flags, rootDir, rootDirLen, pattern, patternLen);
 #ifdef RECLS_COMPILER_THROWS_ON_NEW_FAIL
     }
-    catch(std::bad_alloc&)
+    catch (std::bad_alloc&)
     {
         recls_error_trace_printf_(RECLS_LITERAL("out of memory"));
 
