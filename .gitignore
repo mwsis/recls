@@ -1,10 +1,27 @@
 
 # directories (by name)
 
+/.vs/
+
+/_build/
+/_internal/
+
 /--include
 /--src
 /-include
 /-src
+
+/bin/
+/doc/
+/examples/bin
+/examples/c/bin
+/examples/c/lib
+/examples/cpp/bin
+/examples/cpp/lib
+/examples/lib
+/ideas/
+/lib/
+/scratch/
 
 include/b64/
 include/shwild/
@@ -16,27 +33,7 @@ src/shwild/
 src/xcontract/
 src/xtests/
 
-/.vs/
-
-/_build/
-/_internal/
-
-/bin/
-/examples/bin
-/examples/c/bin
-/examples/cpp/bin
-
-/doc/
-/scratch/
-
-ideas/
-
 ipch/
-
-/lib/
-/examples/lib
-/examples/c/lib
-/examples/cpp/lib
 
 projects/util/vc10-generated/
 
@@ -71,6 +68,7 @@ vc71/
 vc8/
 vc9/
 
+
 # directories (by pattern)
 
 /build/ar*
@@ -82,6 +80,7 @@ vc9/
 /build/icl*
 /build/vc5*
 /build/*.zip
+
 
 # files (by name)
 
@@ -107,6 +106,7 @@ src/backends/be/be.loader.c
 src/backends/bec.loader.cpp
 src/backends/bel/bel.loader.c
 src/backends/ber/ber.loader.c
+
 
 # files (by pattern)
 
